@@ -17,7 +17,7 @@ export default async function handler(
       try {
         const result = await prisma.anime.findUnique({
           where: {
-            id,
+            id: id as string,
           },
           include: {
             reviews: true,
@@ -33,7 +33,7 @@ export default async function handler(
         const { name, description } = body;
         const result = await prisma.anime.findUnique({
           where: {
-            id,
+            id: id as string,
           },
         });
 
@@ -41,14 +41,13 @@ export default async function handler(
 
         await prisma.anime.update({
           where: {
-            id,
+            id: id as string,
           },
           data: {
             name,
             description,
           },
         });
-
         return res.status(204).json({});
       } catch (error: any) {
         return res.status(500).json({ message: error.message });
@@ -57,7 +56,7 @@ export default async function handler(
       try {
         const result = await prisma.anime.findUnique({
           where: {
-            id,
+            id: id as string,
           },
         });
 
@@ -65,10 +64,9 @@ export default async function handler(
 
         await prisma.anime.delete({
           where: {
-            id,
+            id: id as string,
           },
         });
-
         return res.status(204).json({});
       } catch (error: any) {
         return res.status(500).json({ message: error.message });

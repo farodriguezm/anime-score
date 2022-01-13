@@ -17,7 +17,7 @@ export default async function handler(
       try {
         const result = await prisma.review.findUnique({
           where: {
-            id,
+            id: id as string,
           },
           include: {
             anime: true,
@@ -33,7 +33,7 @@ export default async function handler(
         const { score, content } = body;
         const result = await prisma.review.findUnique({
           where: {
-            id,
+            id: id as string,
           },
         });
 
@@ -41,7 +41,7 @@ export default async function handler(
 
         await prisma.review.update({
           where: {
-            id,
+            id: id as string,
           },
           data: {
             score,
@@ -63,7 +63,7 @@ export default async function handler(
             id: result.animeId,
           },
           data: {
-            score: result_2._avg.score,
+            score: result_2._avg.score as number,
           },
         });
 
@@ -75,7 +75,7 @@ export default async function handler(
       try {
         const result = await prisma.review.findUnique({
           where: {
-            id,
+            id: id as string,
           },
         });
 
@@ -83,7 +83,7 @@ export default async function handler(
 
         await prisma.review.delete({
           where: {
-            id,
+            id: id as string,
           },
         });
 
@@ -101,7 +101,7 @@ export default async function handler(
             id: result.animeId,
           },
           data: {
-            score: result_2._avg.score,
+            score: result_2._avg.score as number,
           },
         });
 

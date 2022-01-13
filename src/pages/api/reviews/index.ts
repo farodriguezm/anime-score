@@ -43,7 +43,7 @@ export default async function handler(
             id: animeId,
           },
           data: {
-            score: result_2._avg.score,
+            score: result_2._avg.score as number,
           },
         });
 
