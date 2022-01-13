@@ -31,8 +31,11 @@ const New = ({ animeId, uri }: Props) => {
   const handlerChange = ({
     target: { name, value },
   }: ChangeEvent<HTMLInputElement>) => {
-    if (name == "score") value = parseFloat(value);
-    setReview({ ...review, [name]: value });
+    if (name == "score") {
+      setReview({ ...review, [name]: parseFloat(value) });
+    } else {
+      setReview({ ...review, [name]: value });
+    }
   };
 
   const handlerSubmit = () => {
