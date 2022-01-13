@@ -13,7 +13,7 @@ const NewReview = ({ uri }: Props) => {
 
   return (
     <>
-      <New animeId={id} uri={uri} />
+      <New animeId={id as string} uri={uri} />
     </>
   );
 };
