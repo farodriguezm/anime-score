@@ -11,7 +11,7 @@ const List = ({ animes }: Props) => {
     <Grid container spacing={5}>
       {animes.map((el, index) => {
         return (
-          <Grid item xs={4} key={index}>
+          <Grid item xs={12} sm={6} md={4} key={index}>
             <CardItem anime={el} />
           </Grid>
         );
